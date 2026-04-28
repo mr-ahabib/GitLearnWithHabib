@@ -13,13 +13,21 @@ else:
 
 
 
-# This program prints a message and adds two numbers
+def binary_search(arr, target):
+    l, r = 0, len(arr) - 1
+    while l <= r:
+        mid = (l + r) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            l = mid + 1
+        else:
+            r = mid - 1
+    return -1
 
-print("Hello, world!")
-
-a = 5
-b = 3
-
-sum = a + b
-
-print("The sum is:", sum)
+def dfs(node, graph, visited):
+    if node in visited:
+        return
+    visited.add(node)
+    for nei in graph[node]:
+        dfs(nei, graph, visited)
